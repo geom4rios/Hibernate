@@ -21,12 +21,15 @@
             </property>
         </component>
 
-        <set name="history" table="USER_HISTORY">
-            <key column="ID" />
+        <idbag name="history" table="USER_HISTORY">
+            <collection-id column="ID" type="int">
+                <generator class="increment"></generator>
+            </collection-id>
+            <key column="USERID" />
             <composite-element class="com.simpleprogrammer.UserHistory">
                 <property name="entryTime" type="date" column="ENTRY_TIME" />
                 <property name="entry" type="string" column="ENTRY" />
             </composite-element>
-        </set>
+        </idbag>
     </class>
 </hibernate-mapping>

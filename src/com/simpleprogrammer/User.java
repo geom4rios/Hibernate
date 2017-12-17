@@ -1,7 +1,6 @@
 package com.simpleprogrammer;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class User {
 
@@ -10,13 +9,13 @@ public class User {
 
     private ProteinData proteinData = new ProteinData();
 
-    private Set<UserHistory> history = new HashSet<UserHistory>();
+    private Collection<UserHistory> history = new ArrayList<UserHistory>();
 
-    public Set<UserHistory> getHistory() {
+    public Collection<UserHistory> getHistory() {
         return history;
     }
 
-    public void setHistory(Set<UserHistory> history) {
+    public void setHistory(Collection<UserHistory> history) {
         this.history = history;
     }
 

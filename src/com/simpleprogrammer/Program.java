@@ -4,6 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import java.util.Date;
+import java.util.Map;
 
 public class Program {
     public static void main(String[] args) {
@@ -27,6 +28,7 @@ public class Program {
         System.out.println(loadedUser.getProteinData().getGoal());
 
         for(UserHistory history: loadedUser.getHistory()) {
+            System.out.println("Key Value: " + history.getEntry());
             System.out.println(history.getEntryTime().toString() + " " + history.getEntry());
         }
 
