@@ -21,15 +21,12 @@
             </property>
         </component>
 
-        <idbag name="history" table="USER_HISTORY">
-            <collection-id column="ID" type="int">
-                <generator class="increment"></generator>
-            </collection-id>
-            <key column="USERID" />
-            <composite-element class="com.simpleprogrammer.UserHistory">
-                <property name="entryTime" type="date" column="ENTRY_TIME" />
-                <property name="entry" type="string" column="ENTRY" />
-            </composite-element>
-        </idbag>
+        <!-- setting inverse to true tells hibernate that the User and UserHistory are biderectional in order to avoid double update
+        setting cascade to save-update saves both user and user history -->
+        <list name="history" table="USER_HISTORY" inverse="true" cascade="save-update">
+            <key column="USER_ID" />
+            <list-index column="POSITION" />
+            <one-to-many class="com.simpleprogrammer.UserHistory" />
+        </list>
     </class>
 </hibernate-mapping>

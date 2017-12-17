@@ -14,9 +14,9 @@ public class Program {
 
         User user = new User();
         user.setName("Joe");
-        user.getHistory().add(new UserHistory(new Date(), "Set name to Joe"));
+        user.addHistory(new UserHistory(new Date(), "Set name to Joe"));
         user.getProteinData().setGoal(250);
-        user.getHistory().add(new UserHistory(new Date(), "Set the goal to 250"));
+        user.addHistory(new UserHistory(new Date(), "Set the goal to 250"));
         session.save(user);
 
         session.getTransaction().commit();
@@ -28,12 +28,12 @@ public class Program {
         System.out.println(loadedUser.getProteinData().getGoal());
 
         for(UserHistory history: loadedUser.getHistory()) {
-            System.out.println("Key Value: " + history.getEntry());
             System.out.println(history.getEntryTime().toString() + " " + history.getEntry());
         }
 
         loadedUser.getProteinData().setTotal(loadedUser.getProteinData().getTotal() + 50);
-        loadedUser.getHistory().add(new UserHistory(new Date(), "Added 50 protein"));
+        loadedUser.addHistory(new UserHistory(new Date(), "Added 50 protein"));
+
 
 
         session.getTransaction().commit();

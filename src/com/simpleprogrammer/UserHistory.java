@@ -1,6 +1,8 @@
 package com.simpleprogrammer;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class UserHistory {
 
@@ -9,6 +11,24 @@ public class UserHistory {
 
     private Date entryTime;
     private String entry;
+    private int id;
+    private User user;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public UserHistory(Date entryTime, String entry) {
         super();
@@ -32,21 +52,4 @@ public class UserHistory {
         this.entry = entry;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof UserHistory)) return false;
-
-        UserHistory that = (UserHistory) o;
-
-        if (!entryTime.equals(that.entryTime)) return false;
-        return entry.equals(that.entry);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = entryTime.hashCode();
-        result = 31 * result + entry.hashCode();
-        return result;
-    }
 }
